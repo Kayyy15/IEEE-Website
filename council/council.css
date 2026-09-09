@@ -89,6 +89,7 @@
   transition: 0.3s ease;
   user-select: none;
   backdrop-filter: blur(5px);
+  text-decoration: none;
 }
 
 .next { right: 10px; }
@@ -176,18 +177,17 @@
 
 /* --- Roster Grid --- */
 .roster-grid {
-  display: none; /* Hidden by default */
+  display: none;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  /* (Removed the animation from here) */
 }
 
 .roster-grid.active-roster {
   display: grid;
-  animation: fadeIn 0.4s ease forwards; /* Moved the animation here! */
+  animation: fadeIn 0.4s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -233,29 +233,44 @@
   filter: grayscale(0%) contrast(100%);
 }
 
-/* Hidden LinkedIn Overlay */
+/* LinkedIn Overlay - Hidden by default for all */
 .badge-overlay {
-  position: absolute;
-  bottom: -50px; /* Hidden below */
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: linear-gradient(to top, rgba(11, 25, 44, 0.9), transparent);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: bottom 0.3s ease;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to top, rgba(11, 25, 44, 0.95), transparent);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.3s ease;
+}
+
+/* Show overlay only for members with 'has-link' class */
+.cyber-badge.has-link:hover .badge-overlay {
+    display: flex;
+    bottom: 0;
+}
+
+/* Keep overlay visible on hover */
+.cyber-badge.has-link .badge-overlay {
+    display: none;
+}
+
+.cyber-badge.has-link:hover .badge-overlay {
+    display: flex;
 }
 
 .cyber-badge:hover .badge-overlay {
-  bottom: 0; /* Slides up on hover */
+  bottom: 0;
 }
 
 .social-btn {
-  background: #0a66c2; /* LinkedIn Blue */
+  background: #0a66c2;
   color: #fff;
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,7 +282,7 @@
 
 .social-btn:hover {
   background: #004182;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .badge-info {
@@ -296,19 +311,27 @@
   text-transform: uppercase;
 }
 
-/* Optional Highlight for Webmasters/Tech */
-.cyber-badge.highlight .badge-info {
-  border-top-color: var(--accent-primary, #3b82f6);
-}
-.cyber-badge.highlight .role {
-  color: var(--accent-primary, #3b82f6);
-}
-
 /* Media Queries */
 @media (max-width: 900px) {
   .jumbotron-container {
     max-width: 95%; 
     padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .roster-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  .toggle-track {
+    width: 260px;
+  }
+  
+  .toggle-btn {
+    font-size: 0.9rem;
+    padding: 10px 0;
   }
 }
 
@@ -324,20 +347,27 @@
   }
 
   .badge-info h3 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .role {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .jumbotron-container {
     max-width: 100%;
     margin-bottom: 40px;
+    padding: 8px;
   }
-}
-
-/* Temporarily disabled LinkedIn badges */
-.badge-overlay {
-    display: none !important;
+  
+  .prev, .next {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .social-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
 }
