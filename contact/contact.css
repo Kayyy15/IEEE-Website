@@ -104,6 +104,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s ease, background 0.3s ease;
+  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -116,6 +117,7 @@
   color: var(--text-muted, #94a3b8);
   cursor: pointer;
 }
+
 .input-group select option {
   background: var(--bg-card, #111c33);
   color: #fff;
@@ -160,8 +162,10 @@
 
 /* When input is focused, OR has text (because of the placeholder=" " trick) */
 .input-group input:focus ~ label,
+.input-group input:not(:-moz-placeholder-shown) ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
 .input-group textarea:focus ~ label,
+.input-group textarea:not(:-moz-placeholder-shown) ~ label,
 .input-group textarea:not(:placeholder-shown) ~ label {
   top: -10px;
   left: 10px;
@@ -252,13 +256,18 @@
 .social-box.linkedin:hover {
   box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2);
 }
-.social-box.linkedin:hover i { color: #0a66c2; }
+
+.social-box.linkedin:hover i {
+  color: #0a66c2;
+}
 
 .social-box.instagram:hover {
   box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
 }
-.social-box.instagram:hover i { color: #e1306c; }
 
+.social-box.instagram:hover i {
+  color: #e1306c;
+}
 
 /* Dark Mode Map Integration */
 .map-container {
@@ -289,6 +298,13 @@
   background-size: 20px 20px;
 }
 
+/* Performance optimizations */
+.terminal-panel {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .contact-terminal {
@@ -300,5 +316,47 @@
   }
   .map-container {
     min-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page-wrapper {
+    margin-top: 80px;
+    padding: 0 10px;
+  }
+  
+  .social-links-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .social-box {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .cyber-form {
+    padding: 20px;
+  }
+  
+  .input-group input,
+  .input-group textarea,
+  .input-group select {
+    padding: 12px 12px 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cyber-btn,
+  .social-box,
+  .focus-border {
+    transition: none;
+  }
+  
+  .cyber-btn:hover,
+  .social-box:hover {
+    transform: none;
   }
 }
