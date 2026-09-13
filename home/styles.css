@@ -197,6 +197,7 @@ body {
   /* Glowing gradient text */
   background: linear-gradient(135deg, #ffffff 20%, #60a5fa 60%, var(--accent-primary) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.2));
   min-height: 1.2em; 
@@ -274,72 +275,217 @@ body {
 }
 
 /* Events Section - Cards with Hover Animation */
+/* 
+   EVENTS SECTION - ATTRACTIVE CARDS & TAP INTERACTION
+    */
+/* FUTURE REFERENCE:
+ * Preserve the event card structure (events-grid, event-card, card-img-wrapper,
+ * card-content and hover/tap styling) in sync with the homepage card markup and
+ * event landing page interactions whenever new event-seat visual styles are added.
+ */
 .events-section {
   background-color: var(--bg-surface);
+  position: relative;
+}
+
+.events-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
+/* Enhanced Card Container */
 .event-card {
-  background: var(--bg-card);
-  border-radius: 8px;
+  background: linear-gradient(180deg, #111c33 0%, #0a1120 100%);
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.03);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease, 
+              border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-primary);
+  transform: translateY(-8px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.35);
 }
 
+/* Poster Image Area */
 .card-img-wrapper {
   width: 100%;
-  aspect-ratio: 3 / 4; /* Forces the box into a standard poster shape */
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  position: relative;
+  background-color: var(--bg-deep);
 }
 
 .card-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* Prioritizes showing the top of the poster */
-  transition: transform 0.5s ease;
+  object-position: top;
+  transition: transform 0.6s ease;
+  cursor: pointer;
 }
 
 .event-card:hover .card-img-wrapper img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
+/* Category Badge on Poster */
+.card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(5, 11, 20, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 4px 10px;
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Content Area */
 .card-content {
-  padding: 25px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.card-content h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
+.event-card-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-main);
+  margin-bottom: 12px;
+  line-height: 1.35;
 }
 
-.card-content p {
+/* Interactive Description Link (Tap to go to Event Page) */
+.event-desc-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px 12px;
+  margin: -10px -12px 14px -12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px dashed rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.event-desc-link:hover,
+.event-desc-link:active {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.event-desc-link p {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.event-desc-link:hover p {
+  color: #e2e8f0;
+}
+
+/* "Tap for full details" Hint */
+.read-more-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-top: auto;
+  transition: gap 0.2s ease;
+}
+
+.event-desc-link:hover .read-more-cue {
+  gap: 9px;
+  color: #60a5fa;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Card Bottom Date */
+.card-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .event-date {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.event-date i {
   color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.1);
-  padding: 6px 12px;
-  border-radius: 4px;
+}
+
+/* Bottom "Explore All Events" Button */
+.events-footer-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary);
+  color: #fff;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
 /* About Section */
@@ -687,4 +833,80 @@ body {
   .section-header h2 {
     font-size: 2rem;
   }
+}
+/* 
+   CENTERED FULL-PAGE "ACCESSING EVENT" ANIMATION
+    */
+/* FUTURE REFERENCE:
+ * This animation block pairs with home/script.js showEventAccessAnimation().
+ * The .event-card.cyber-warp-active class and .event-teleport-overlay modal
+ * visually confirm the event-desc-link click before redirecting to the archive page.
+ */
+
+/* Clicked card subtle energy glow */
+.event-card.cyber-warp-active {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6) !important;
+  transform: scale(0.98) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* 1. Full-screen subtle dark backdrop blur */
+.event-teleport-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 11, 20, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: overlayFade 0.4s ease-out forwards;
+}
+
+@keyframes overlayFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 2. Sleek HUD Pop-up centered directly in middle of the screen */
+.event-teleport-modal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(10, 17, 32, 0.95);
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), inset 0 0 15px rgba(59, 130, 246, 0.15);
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  transform: scale(0.85);
+  animation: centerPopup 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulsing radar spinner */
+.teleport-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spinRadar 0.6s linear infinite;
+}
+
+@keyframes spinRadar {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes centerPopup {
+  0% { opacity: 0; transform: scale(0.75); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
 }
