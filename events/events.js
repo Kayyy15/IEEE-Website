@@ -16,14 +16,14 @@ const eventsData = {
       photos: ["../static/events/code autopsy.jpeg"],
       description: "An interactive coding challenge to solve real-world problems. Debug and analyze complex code to identify errors and improve problem-solving skills.",
       date: "2026-03-16",
-      winner: "🥇 1st Place: Team BugBusters (PCE)" // Optional
+      winner: "🥇 1st Place: XYZ (PCE)" // Optional
     },
     {
       title: "Cognithon 2026: AI & ML Hackathon",
       photos: ["../static/events/Cognithon 2026.jpeg", "../static/events/Cognithon(2).jpeg"],
       description: "COGNITION 2026 was a one-day AI Hackathon organized by the IEEE PCE Student Branch,bringing together 30 teams to develop innovative solutions for real-world industry problem statement with support and mentorship from TCS. The event provided students with a platform to showcase their technical skills,creativity, collaboration, and problem-solving abilities.",
       date: "2026-07-18",
-      winner: "🏆 Winner: Team NeuroByte & Team Matrix",
+      winner: "🏆 Winner: Team XYZ & Team XYZ",
       highlights: [
         "30 teams collaborated on industry-inspired AI and ML problem statements.",
         "120 Students participated, showcasing their technical skills and creativity.",
@@ -38,7 +38,7 @@ const eventsData = {
       photos: ["../static/events/Poster Designing.jpg"], 
       description: "IEEE presents “Zero to Hero”, a Photoshop Poster Designing Workshop & Competition! 🚀", 
       date: "2025-08-15",
-      winner: "Best Poster Design: Aryan Patil"
+      winner: "Best Poster Design: XYZ"
     },
     { 
       title: "🔐 Cyber Security Workshop", 
@@ -57,7 +57,7 @@ const eventsData = {
       photos: ["../static/events/encryptocode.png"], 
       description: "Decode the mystery, crack the code! Join Encrypt-O-Code, the ultimate coding challenge where every line of code brings you closer to victory. 🕵️‍♂️", 
       date: "2025-10-07",
-      winner: "Karan Sharma (Fastest Decode)"
+      winner: "XYZ(Fastest Decode)"
     },
     { 
       title: "Phishnet", 
@@ -78,7 +78,7 @@ const eventsData = {
       photos: ["../static/events/Code Conquest.jpeg"], 
       description: "Put your DSA and problem-solving skills to the test with exciting coding challenges designed to sharpen your logic, creativity, and programming skills.", 
       date: "2024-10-14",
-      winner: "Team Binary Ninjas"
+      winner: "Team XYZ"
     },
     { title: "DATA NEXUS", photos: ["../static/events/Data Nexus.23.jpg"], description: "An immersive Data Science and Machine Learning workshop designed to turn curiosity into practical skills through hands-on learning, real-world insights, and exciting challenges. ", date: "2024-10-15" },
     { title: "TECH HUNT", photos: ["../static/events/Tech hunt.jpg"], description: "Get ready for a twist on the classic treasure hunt with Tech Hunt!", date: "2024-03-16" },
