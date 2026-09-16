@@ -51,7 +51,12 @@
                     <span>Transmission_Form.exe</span>
                 </div>
                 
-                <form action="mailto:ieee@pce.ac.in" method="POST" class="cyber-form" id="contactForm" novalidate>
+                <form class="cyber-form" id="contactForm" novalidate>
+                    <input type="hidden" name="access_key" value="5fbafe8c-f335-45b0-b47b-0cb3cfe6e8f2" />
+                    <input type="hidden" name="subject" value="New Contact Form Submission - IEEE PCE" />
+                    <input type="hidden" name="from_name" value="IEEE PCE Website" />
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none;" />
+
                     <div class="input-row">
                         <div class="input-group">
                             <input type="text" id="contactName" name="name" required placeholder=" " />
@@ -111,6 +116,10 @@
                         <a href="https://www.instagram.com/ieeepce/" target="_blank" class="social-box instagram">
                             <i class="fa-brands fa-instagram"></i>
                             <span>Instagram Feed</span>
+                        </a>
+                        <a href="mailto:ieee@pce.ac.in" class="social-box email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email Us</span>
                         </a>
                     </div>
                 </div>

@@ -117,7 +117,6 @@
   color: var(--text-muted, #94a3b8);
   cursor: pointer;
 }
-
 .input-group select option {
   background: var(--bg-card, #111c33);
   color: #fff;
@@ -162,10 +161,9 @@
 
 /* When input is focused, OR has text (because of the placeholder=" " trick) */
 .input-group input:focus ~ label,
-.input-group input:not(:-moz-placeholder-shown) ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
+.input-group input:-webkit-autofill ~ label,
 .input-group textarea:focus ~ label,
-.input-group textarea:not(:-moz-placeholder-shown) ~ label,
 .input-group textarea:not(:placeholder-shown) ~ label {
   top: -10px;
   left: 10px;
@@ -173,6 +171,15 @@
   background: var(--bg-card, #111c33);
   padding: 0 5px;
   color: var(--accent-primary, #3b82f6);
+}
+
+/* Chrome autofill background fix */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-main, #fff);
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-card, #111c33) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Submit Button */
@@ -197,10 +204,14 @@
   margin-top: 10px;
 }
 
-.cyber-btn:hover {
+.cyber-btn:hover:not(:disabled) {
   background: var(--accent-primary, #3b82f6);
   color: #fff;
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.cyber-btn:disabled {
+  cursor: not-allowed;
 }
 
 /* --- Right Side: Radar & Info --- */
@@ -256,18 +267,17 @@
 .social-box.linkedin:hover {
   box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2);
 }
-
-.social-box.linkedin:hover i {
-  color: #0a66c2;
-}
+.social-box.linkedin:hover i { color: #0a66c2; }
 
 .social-box.instagram:hover {
   box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
 }
+.social-box.instagram:hover i { color: #e1306c; }
 
-.social-box.instagram:hover i {
-  color: #e1306c;
+.social-box.email:hover {
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
+.social-box.email:hover i { color: #3b82f6; }
 
 /* Dark Mode Map Integration */
 .map-container {
@@ -296,13 +306,6 @@
   background: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
               linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
-}
-
-/* Performance optimizations */
-.terminal-panel {
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 /* Responsive */
