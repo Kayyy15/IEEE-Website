@@ -51,11 +51,17 @@
                     <span>Transmission_Form.exe</span>
                 </div>
                 
-                <form class="cyber-form" id="contactForm" novalidate>
-                    <input type="hidden" name="access_key" value="5fbafe8c-f335-45b0-b47b-0cb3cfe6e8f2" />
-                    <input type="hidden" name="subject" value="New Contact Form Submission - IEEE PCE" />
-                    <input type="hidden" name="from_name" value="IEEE PCE Website" />
-                    <input type="checkbox" name="botcheck" class="hidden" style="display:none;" />
+                <!-- Web3Forms Integration -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="cyber-form" id="contactForm">
+                    
+                    <!-- ⚠️ REPLACE WITH YOUR ACTUAL WEB3FORMS ACCESS KEY -->
+                    <input type="hidden" name="access_key" value="5fbafe8c-f335-45b0-b47b-0cb3cfe6e8f2">
+                    
+                    <input type="hidden" name="subject" value="New Contact from IEEE PCE Website">
+                    <input type="hidden" name="from_name" value="IEEE PCE Contact Form">
+                    
+                    <!-- Spam protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="input-row">
                         <div class="input-group">
@@ -79,16 +85,16 @@
                     <div class="input-group">
                         <select id="contactInquiry" name="inquiry" required>
                             <option value="" disabled selected>Select Inquiry Directive...</option>
-                            <option value="technical">Technical Support</option>
-                            <option value="partnership">Sponsorship / Partnership</option>
-                            <option value="sales">Event Inquiry</option>
-                            <option value="other">Other Directive</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Sponsorship / Partnership">Sponsorship / Partnership</option>
+                            <option value="Event Inquiry">Event Inquiry</option>
+                            <option value="Other Directive">Other Directive</option>
                         </select>
                         <div class="focus-border"></div>
                     </div>
 
                     <div class="input-group">
-                        <textarea id="contactDescription" name="description" rows="5" required placeholder=" "></textarea>
+                        <textarea id="contactDescription" name="message" rows="5" required placeholder=" "></textarea>
                         <label for="contactDescription">Subject (Message)</label>
                         <div class="focus-border"></div>
                     </div>
