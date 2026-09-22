@@ -11,19 +11,25 @@
 // rendering templates unchanged.
 const eventsData = {
   2026: [
+    /*{
+      title: "🔐 UI/UX Design Workshop",
+      photos: ["../static/events/UIUX.jpg","../static/events/UIUX(1).jpg", "../static/events/UIUX(2).jpg","../static/events/UIUX(3).jpg"],
+      description: "An engaging one-day workshop organized by IEEE PCE in collab with Alegria that introduced students to the fundamental principles of User Interface (UI) and User Experience (UX) design. Led by expert Ms. Sejal, the session blended theory with practice, covering core concepts like typography and color selection before transitioning into a comprehensive hands-on Figma demonstration. Participants gained practical exposure by editing a dynamic car design model and exploring interactive UI elements like the Mirror Font Effect. The insightful event concluded with a creative design competition and a Vote of Thanks by Swastik, successfully equipping attendees with essential industry-standard design skills.",
+      date: "2026-01-29"
+    },*/
+   
     {
       title: "🚀 Code Autopsy: Gamified debugging",
-      photos: ["../static/events/code autopsy.jpeg"],
-      description: "An interactive coding challenge to solve real-world problems. Debug and analyze complex code to identify errors and improve problem-solving skills.",
-      date: "2026-03-16",
-      winner: "🥇 1st Place: XYZ (PCE)" // Optional
+      photos: ["../static/events/code autopsy.jpeg","../static/events/code autopsy(1).png","../static/events/code autopsy(2).png","../static/events/code autopsy(3).png"],
+      description: "An intensive two-day gamified debugging competition organized by IEEE PCE that challenged 32 students to become elite code diagnosticians. Led by Ajinkya Katke and Disha Shelar, the event featured hands-on Bug Hunts and Memory Challenges to extract code errors and resolve memory inefficiencies, progressing into autonomous complex problem-solving and algorithmic optimization on the second day. Concluding with a high-pressure lightning quiz showdown and participant reflections supervised by Dr. Karpagavalli S, the event successfully bridged classroom theory with production-ready code investigation skills essential for modern software engineering.",
+      date: "2026-03-16"
     },
+    
     {
       title: "Cognithon 2026: AI & ML Hackathon",
       photos: ["../static/events/Cognithon 2026.jpeg", "../static/events/Cognithon(2).jpeg"],
       description: "COGNITION 2026 was a one-day AI Hackathon organized by the IEEE PCE Student Branch,bringing together 30 teams to develop innovative solutions for real-world industry problem statement with support and mentorship from TCS. The event provided students with a platform to showcase their technical skills,creativity, collaboration, and problem-solving abilities.",
       date: "2026-07-18",
-      winner: "🏆 Winner: Team XYZ & Team XYZ",
       highlights: [
         "30 teams collaborated on industry-inspired AI and ML problem statements.",
         "120 Students participated, showcasing their technical skills and creativity.",
@@ -31,58 +37,85 @@ const eventsData = {
         "Expert jury evaluated the solutions based on innovation, feasibility, and impact.",
       ]
     },
+    {
+      title:"Celestia 2.0",
+      photos: ["../static/events/celestia2.jpg","../static/events/celestia2(1).png","../static/events/celestia2(2).png","../static/events/celestia2(3).png","../static/events/celestia2(4).png"],
+      description: "An enriching one-day event organized by the IEEE-PCE Student Branch that brought together 32 participants for the official launch of the IEEE magazine, Reverie, while maintaining a strong focus on Artificial Intelligence and Machine Learning. Following motivating addresses from faculty and Dr. Sameer Nanivadekar on the professional benefits of IEEE membership, the session transitioned into an engaging technical deep-dive. Guest speaker Mr. Jigar Parekh led an interactive AI session, exploring its fundamentals, emerging career opportunities, and its critical integration into the modern Software Development Life Cycle (SDLC). The successful event concluded with the awarding of Letters of Appreciation to senior members, fostering collaboration and technical growth within the community.",
+      date: "2026-04-04"
+    },
   ],
   2025: [ 
     { 
-      title: "🎨✨ Photoshop Workshop", 
-      photos: ["../static/events/Poster Designing.jpg"], 
-      description: "IEEE presents “Zero to Hero”, a Photoshop Poster Designing Workshop & Competition! 🚀", 
-      date: "2025-08-15",
-      winner: "Best Poster Design: XYZ"
+      title: "Phishnet", 
+      photos: ["../static/events/phishnet.jpeg","../static/events/phishnet(1).jpg","../static/events/phishnet(2).jpg","../static/events/phishnet(3).jpg"], 
+      description: "An engaging two-day workshop and competition that immersed 65 participants in the critical fields of Cybersecurity and Digital Forensics. Led by Mr. Kshitij Singh and Mr. Sayank Basak, the event featured hands-on FTP Forensics Lab Exercises and timed competitive challenges where students investigated simulated breaches and traced digital footprints. This IEEE PCE event concluded with a gamified quiz, successfully providing practical exposure to forensic tools and empowering participants to navigate the complex challenges of the modern digital landscape. 🛡️💻", 
+      date: "2025-10-08" ,
+      winner: "🏆 Hareshwar Patil and Samarth Ratnaparkhi"
+
     },
     { 
-      title: "🔐 Cyber Security Workshop", 
-      photos: ["../static/events/Ethical Hacking.jpg"], 
-      description: "Unlock the secrets of cybersecurity and ethical hacking! Learn, explore, and safeguard the digital world. 🚀💻", 
+      title: "🎨✨ Photoshop Workshop", 
+      photos: ["../static/events/Poster Designing.jpg","../static/events/Poster Designing(1).jpg","../static/events/Poster Designing(2).jpg"], 
+      description: "IEEE presents “Zero to Hero”, An intensive four-hour graphical workshop that equipped 39 participants with foundational and advanced Adobe Photoshop skills. Led by design experts Aaryan and Shlok, the comprehensive session covered everything from basic canvas setups and text tools to advanced layer management, blending modes, and gradients. The event concluded in a 45-minute hands-on design competition where students applied their newly acquired skills in real time. Winners were recognized for their creativity, leaving attendees inspired and well-prepared to pursue opportunities in graphic design.🚀", 
+      date: "2025-08-15",
+         },
+    {
+      title: " Matlab Simulink Workshop",
+      photos: ["../static/events/Matlabsimulink.jpg","../static/events/Matlabsimulink(1).jpg","../static/events/Matlabsimulink(2).jpg"],
+      description: "​A full-day technical workshop organise by IEEE-PCE x AESA MESA in collaboration with MathWorks and competition that engaged 28 participants in the practical application of MATLAB and Simulink for drone path planning. Following an introduction by Dr. Karpagavalli S, experts from MathWorks led a live session covering AI-based path planning algorithms and image processing. Students then collaborated in small teams to tackle a real-world engineering problem statement, applying their newly acquired skills in advanced computational tools and autonomous navigation to develop a complete solution. 🚀",
+      date: "2025-08-08"
+    },
+    { 
+      title: "🔐 Ethical Hacking Workshop", 
+      photos: ["../static/events/Ethical Hacking.jpg","../static/events/Ethical Hacking(1).jpg"], 
+      description: "​An engaging technical session organised by IEEE-PCE x Alegria that introduced 75 participants to the practical world of cybersecurity. Led by industry experts Rutvik Magarde and Sayan Basak, the comprehensive workshop covered foundational hacking tools, real-world incident analysis, advanced OSINT techniques, and future career opportunities. Featuring hands-on demonstrations and interactive quizzes to reinforce learning, the event successfully equipped students with valuable real-world insights into modern ethical hacking, concluding with a celebration of the top quiz performers. 🚀💻", 
       date: "2025-02-02"
     },
     { 
       title: "Machine Minds", 
-      photos: ["../static/events/machine minds.jpeg"], 
-      description: "Dive into the world of AI and Machine Learning with IEEE's 'Machine Minds' workshop! 🤖✨", 
+      photos: ["../static/events/machine minds.jpeg","../static/events/machine minds(1).jpg","../static/events/machine minds(2).jpg","../static/events/machine minds(3).jpg"], 
+      description: "An engaging technical seminar that immersed 52 students in the intersection of theoretical knowledge and real-world applications. Led by guest speaker Rahul Sakpal, the session seamlessly wove academic concepts with authentic industry anecdotes, demonstrating how companies balance innovation with practical constraints. This inaugural IEEE Week event by IEEE PCE concluded with a highly interactive Q&A, equipping attendees with valuable industry insights and renewed motivation to pursue technical excellence.      🤖✨", 
       date: "2025-10-06" 
+    },
+    {
+      title: "Neural Nexus",
+      photos: ["../static/events/neuralnexus.jpg","../static/events/neuralnexus(1).jpg","../static/events/neuralnexus(2).jpg"],
+      description: "An engaging two-hour workshop that introduced 35 teams to the fundamentals of Artificial Intelligence, Machine Learning, and Neural Networks. Guided by Mr. Sujay Nanaware's insights on the ethical aspects of AI and Mr. Vishwaneel Vhatkar's hands-on model training demonstrations, the session successfully bridged theoretical concepts with practical industry applications. This insightful IEEE PCE event concluded with an interactive Q&A discussing career and research prospects, leaving students motivated to explore responsible AI innovation.", 
+      date: "2025-10-08",
+      winner: "🏆 Winner: Medha Bhoir <br> 🥈1st Runner-up: Neha Pravin Sali"
+
     },
     { 
       title: "🔒 Encrypt-O-Code", 
-      photos: ["../static/events/encryptocode.png"], 
-      description: "Decode the mystery, crack the code! Join Encrypt-O-Code, the ultimate coding challenge where every line of code brings you closer to victory. 🕵️‍♂️", 
+      photos: ["../static/events/encryptocode.png","../static/events/encryptocode(1).png","../static/events/encryptocode(2).png"], 
+      description: "An engaging one-day technical workshop and competition where 42 participants designed ESP32-based cipher machines to convert plaintext into Morse Code. Guided by IEEE Technical Head Mr. Ajinkya Katke, teams tackled hardware interfacing and Caesar Cipher implementation to successfully display encrypted messages. This hands-on IEEE PCE event concluded with remarks from Dr. Karpagavalli S and Chairperson Rutvik Magarde, successfully fostering collaboration and practical skills in embedded technology and cryptographic programming. 🕵️‍♂️", 
       date: "2025-10-07",
-      winner: "XYZ(Fastest Decode)"
     },
-    { 
-      title: "Phishnet", 
-      photos: ["../static/events/phishnet.jpeg"], 
-      description: "Dive into the world of cybersecurity with PhishNet! Learn to identify and combat phishing attacks in this interactive workshop. 🛡️💻", 
-      date: "2025-10-08" 
-    },
+   
     { 
       title: "No Escape Room 🔒", 
-      photos: ["../static/events/poster no escape.png"], 
-      description: "A national-level Workshop exploring Artificial Intelligence and Robotics. 🤖✨", 
+      photos: ["../static/events/poster no escape.png","../static/events/poster no escape(1).png","../static/events/poster no escape(2).png"], 
+      description: "An exciting one-day competition organized by IEEE PCE that challenged 75 participants to test their teamwork, coordination, and problem-solving skills in a thrilling escape room environment. Navigating a dark, immersive setup with just a single torch, teams of four raced against an 8-minute clock to solve a unique mix of technical quizzes and physical mini-games, including a tense round of Red Light-Green Light. Facing the pressure of elimination, students experienced an adrenaline-filled adventure that perfectly blended mental agility with high-stakes gameplay, concluding with memorable moments captured at the event's photo booth. 🤖✨", 
       date: "2025-10-09" 
     }
   ],
   2024: [
     { 
       title: "CODE CONQUEST", 
-      photos: ["../static/events/Code Conquest.jpeg"], 
-      description: "Put your DSA and problem-solving skills to the test with exciting coding challenges designed to sharpen your logic, creativity, and programming skills.", 
+      photos: ["../static/events/Code Conquest.jpeg","../static/events/Code Conquest(1).jpg","../static/events/Code Conquest(2).jpg"], 
+      description: "A challenging three-round technical competition that tested the programming skills of 17 participants under strict time limits. Following inspiring opening remarks from faculty and a celebratory cake-cutting ceremony, students tackled escalating coding problems ranging from rapid-fire questions to a complex final challenge. The first-place winner secured a cash prize, while the runners-up were awarded certificates. This engaging event celebrated technical excellence, awarding e-certificates to all attendees for their competitive spirit.", 
       date: "2024-10-14",
-      winner: "Team XYZ"
+      winner: "🥇 1st Place : Saket Singh <br>🥈 2nd Place : Shridhar Khare <br>🥉 3rd Place : Ibrahim kadiri"
     },
-    { title: "DATA NEXUS", photos: ["../static/events/Data Nexus.23.jpg"], description: "An immersive Data Science and Machine Learning workshop designed to turn curiosity into practical skills through hands-on learning, real-world insights, and exciting challenges. ", date: "2024-10-15" },
-    { title: "TECH HUNT", photos: ["../static/events/Tech hunt.jpg"], description: "Get ready for a twist on the classic treasure hunt with Tech Hunt!", date: "2024-03-16" },
-    { title: "NO ESCAPE", photos: ["../static/events/no escape.jpg"], description: "A thrilling escape room experience that tests your problem-solving skills and teamwork!", date: "2024-10-16" }
+    { title: "DATA NEXUS", photos: ["../static/events/Data Nexus.23.jpg","../static/events/Data Nexus23(1).jpg","../static/events/Data Nexus23(2).jpg"],
+       description: "An engaging Info-tech session that immersed 40 participants in the fundamentals of data science and machine learning. Led by Mr. Sujay Nanawre and guest speaker Mr. Shree, the workshop seamlessly connected complex technical theories to real-world industry applications and case studies. This comprehensive IEEE Week event concluded with an interactive Q&A, equipping attendees with valuable insights into modern data analytics and future career opportunities. ",
+        date: "2024-10-15" },
+    { title: "TECH HUNT", photos: ["../static/events/Tech hunt.jpg","../static/events/TechHunt(1).jpg","../static/events/TechHunt(2).jpg","../static/events/TechHunt(3).jpg"], 
+      description: "An electrifying campus-wide scavenger hunt where teams of four raced against the clock to solve clues, find hidden circuit components, and assemble them. This flagship IEEE Week event blended physical challenges with engineering strategy, testing both technical skills and flawless teamwork in a high-energy competition.",
+       date: "2024-03-16", winner: "Rajdeep Maity, Aadhir Pandey, Anuj Meher, and Pradyum Vishwakarma" },
+    { title: "NO ESCAPE ROOM - MANSION MAYHEM", photos: ["../static/events/no escape.jpg","../static/events/no escape(1).jpg","../static/events/no escape(2).jpg"], 
+      description: "​A thrilling, spooky challenge where 16 teams navigated a dark escape room using only a torch. With just 10 minutes on the clock, participants had to rely on critical thinking and teamwork to solve hidden puzzles and escape. This suspenseful IEEE Week event concluded with e-certificates for all, memorable photo booth moments, and a ₹1,000 prize pool for the winning team.",
+       date: "2024-10-16" }
   ],
   2023: [
     { title: "TECH HUNT", photos: ["../static/events/Tech hunt.jpg"], description: "Get ready for a twist on the classic treasure hunt with Tech Hunt!", date: "2023-03-11" },
@@ -263,46 +296,52 @@ function renderUpcomingEvents(year = 2026) {
   });
 }
 
-// Load the static workshop archive cards and show the workshop section in the UI.
+// Detect workshop events from explicit metadata or their text content.
+function isWorkshopEvent(event) {
+  return event.isWorkshop === true
+    || event.category === 'workshop'
+    || event.title?.toLowerCase().includes('workshop')
+    || /\bworkshop\b/i.test(event.description || '');
+}
+
+// Load workshop archive cards from the event data and show the workshop section in the UI.
 function loadPastWorkshops() {
-  showSection("pastWorkshops"); 
-  const pastWorkshops = [
-    { title: "GD Workshop", photos: ["../static/events/Poster Designing.jpg"], description: "Hands-on GD and Graphic design workshop." },
-    { title: "Crafting Circuits", photos: ["../static/events/Tech hunt.jpg"], description: "Building circuit hardware fundamentals." }
-  ];
-
+  showSection("pastWorkshops");
   const container = document.getElementById("past-workshops");
-  container.innerHTML = ""; 
+  if (!container) return;
+  container.innerHTML = "";
 
-  pastWorkshops.forEach(workshop => {
-    const card = document.createElement("div");
-    card.className = "event-card";
-    card.innerHTML = `
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-img-wrapper">
-            <img src="${workshop.photos[0]}" alt="${workshop.title}" />
-          </div>
-        </div>
-        <div class="card-back">
-          <div class="card-content">
-            <h3 style="margin: 0; text-align: center;">${workshop.title}</h3>
-            <p style="text-align: center; margin-top: 10px;">${workshop.description}</p>
-            <div class="card-back-footer">
-              <button class="btn-view-details" type="button">
-                <span>View Workshop Details</span>
-                <span>&rarr;</span>
-              </button>
-            </div>
-          </div>
-        </div>
+  const workshops = Object.keys(eventsData)
+    .sort((a, b) => Number(b) - Number(a))
+    .flatMap(year => eventsData[year].filter(isWorkshopEvent));
+
+  if (workshops.length === 0) {
+    container.innerHTML = `
+      <div class="no-events">
+        <div class="radar-scan"></div>
+        <p class="typewriter-text">> SYSTEM_STATUS: Workshop records not found<span class="cursor"></span></p>
       </div>
     `;
+    return;
+  }
 
-    applyMobileCardFlip(card, () => openEventDetails(workshop));
-
-    container.appendChild(card);
+  workshops.forEach(workshop => {
+    container.appendChild(createFlipCard(workshop));
   });
+
+  const minCards = 4;
+  if (workshops.length < minCards) {
+    for (let i = 0; i < minCards - workshops.length; i++) {
+      const ghost = document.createElement("div");
+      ghost.className = "ghost-card";
+      ghost.innerHTML = `
+        <i class="fa-solid fa-lock ghost-icon"></i>
+        <p class="ghost-text">ENCRYPTED_FILE</p>
+        <p class="ghost-subtext">Awaiting Declassification</p>
+      `;
+      container.appendChild(ghost);
+    }
+  }
 }
 
 // 5. MODAL & PHOTO LIGHTBOX LOGIC
