@@ -208,6 +208,7 @@ body {
   letter-spacing: -2px; 
   background: linear-gradient(135deg, #ffffff 20%, #60a5fa 60%, var(--accent-primary) 100%); 
   -webkit-background-clip: text; 
+  background-clip: text; 
   -webkit-text-fill-color: transparent; 
   filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.2)); 
   min-height: 1.2em; 
@@ -355,6 +356,30 @@ body {
   padding: 6px 12px; 
   border-radius: 4px; 
 } 
+
+.register-btn {
+  display: block;
+  align-self: center;
+  width: fit-content;
+  min-width: 150px;
+  margin: 18px auto 0;
+  padding: 11px 18px;
+  border: 1px solid var(--accent-primary);
+  border-radius: 4px;
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.12);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: var(--accent-primary);
+  color: var(--text-main);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
  
 /* About Section */ 
 .about-content { 

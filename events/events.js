@@ -16,6 +16,13 @@ function setActiveBtn(clickedBtn) {
 const eventsData = {
   2026: [
     {
+  title:"ROBOTICS WORKSHOP",
+      photos:["../static/events/ROBOWORKSHOP.jpg"],
+      description: "Are you ready to design, build, and innovate?🤖⚡ IEEE PCE, in collaboration with Pillai University and Techfest IIT Bombay, is hosting an exclusive, hands-on Robotics Workshop. This free session is designed to take you from the basics of Arduino and Bot Design to advanced competition strategies for RoboReach, Meshmerize, and ThetaShift. Join us and take your first step into the world of Robotics!🚀",
+      date: "2026-09-23",
+      registrationUrl: "https://forms.gle/uYDDMpXDu9D5tnA87"
+    },
+    {
       title: "🚀 Code Autopsy: Gamified debugging",
       photos: ["../static/events/code autopsy.jpeg"],
       description: "An interactive coding challenge to solve real-world problems. Debug and analyze complex code to identify errors and improve problem-solving skills.",
@@ -47,6 +54,11 @@ const eventsData = {
     { title: "CODE WAR", photos: ["../static/events/Code Conquest.jpeg"], description: "Different coding challenges will be displayed and participants have to tackle them.", date: "2023-03-12" }
   ]
 };
+
+function registrationMarkup(event) {
+  if (!event.registrationUrl) return "";
+  return `<a class="register-btn" href="${event.registrationUrl}" target="_blank" rel="noopener">Register Now</a>`;
+}
 
 // Section Toggler
 function showSection(section) {
@@ -91,9 +103,12 @@ function renderEvents(year, containerId) {
             <h3>${event.title}</h3>
             <p>${event.description}</p>
             <span class="event-date">${formatDate(event.date)}</span>
+            ${registrationMarkup(event)}
           </div>
         `;
-        div.onclick = () => openModal(event);
+        div.onclick = (clickEvent) => {
+            if (!clickEvent.target.closest('.register-btn')) openModal(event);
+        };
         container.appendChild(div);
     });
 
@@ -148,9 +163,12 @@ function renderUpcomingEvents(year = 2026) {
             <h3>${event.title}</h3>
             <p>${event.description}</p>
             <span class="event-date">${formatDate(event.date)}</span>
+            ${registrationMarkup(event)}
           </div>
         `;
-        div.onclick = () => openModal(event);
+        div.onclick = (clickEvent) => {
+            if (!clickEvent.target.closest('.register-btn')) openModal(event);
+        };
         container.appendChild(div);
     });
 }
