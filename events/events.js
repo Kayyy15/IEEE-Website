@@ -19,13 +19,6 @@ const eventsData = {
     },*/
    
     {
-  title:"ROBOTICS WORKSHOP",
-      photos:["../static/events/ROBOWORKSHOP.jpg"],
-      description: "Are you ready to design, build, and innovate?🤖⚡ IEEE PCE, in collaboration with Pillai University and Techfest IIT Bombay, is hosting an exclusive, hands-on Robotics Workshop. This free session is designed to take you from the basics of Arduino and Bot Design to advanced competition strategies for RoboReach, Meshmerize, and ThetaShift. Join us and take your first step into the world of Robotics!🚀",
-      date: "2026-09-23",
-      registrationUrl: "https://forms.gle/uYDDMpXDu9D5tnA87"
-    },
-    {
       title: "🚀 Code Autopsy: Gamified debugging",
       photos: ["../static/events/code autopsy.jpeg","../static/events/code autopsy(1).png","../static/events/code autopsy(2).png","../static/events/code autopsy(3).png"],
       description: "An intensive two-day gamified debugging competition organized by IEEE PCE that challenged 32 students to become elite code diagnosticians. Led by Ajinkya Katke and Disha Shelar, the event featured hands-on Bug Hunts and Memory Challenges to extract code errors and resolve memory inefficiencies, progressing into autonomous complex problem-solving and algorithmic optimization on the second day. Concluding with a high-pressure lightning quiz showdown and participant reflections supervised by Dr. Karpagavalli S, the event successfully bridged classroom theory with production-ready code investigation skills essential for modern software engineering.",
@@ -130,22 +123,7 @@ const eventsData = {
   ]
 };
 
-function registrationMarkup(event) {
-  if (!event.registrationUrl) return "";
-  return `<a class="register-btn" href="${event.registrationUrl}" target="_blank" rel="noopener">Register Now</a>`;
-}
-
-// Section Toggler
-function showSection(section) {
-    const sections = {
-        current: document.getElementById("current-events"),
-        pastEvents: document.getElementById("past-events"),
-        pastWorkshops: document.getElementById("past-workshops"),
-    };
-    
-    Object.keys(sections).forEach(id => {
-        if (sections[id]) sections[id].style.display = "none";
-    });
+// 2. HELPER FUNCTIONS
 
 // Convert an ISO event date string into a friendly long-form date shown on the UI.
 function formatDate(dateStr) {
@@ -235,14 +213,20 @@ function createFlipCard(event) {
           </div>
           <div class="card-back-footer">
             <span class="event-date">${formatDate(event.date)}</span>
-            ${registrationMarkup(event)}
+            <button class="btn-view-details" type="button">
+              <span>View Event Details</span>
+              <span>&rarr;</span>
+            </button>
           </div>
-        `;
-        div.onclick = (clickEvent) => {
-            if (!clickEvent.target.closest('.register-btn')) openModal(event);
-        };
-        container.appendChild(div);
-    });
+        </div>
+      </div>
+    </div>
+  `;
+
+  applyMobileCardFlip(div, () => openEventDetails(event));
+
+  return div;
+}
 
 // 4. GRID RENDERING
 // Render every event from a specific year into the requested HTML container.
@@ -307,25 +291,9 @@ function renderUpcomingEvents(year = 2026) {
     return;
   }
 
-    events.forEach(event => {
-        const div = document.createElement("div");
-        div.className = "event-card";
-        div.innerHTML = `
-          <div class="card-img-wrapper">
-            <img src="${event.photos[0]}" alt="${event.title}" />
-          </div>
-          <div class="card-content">
-            <h3>${event.title}</h3>
-            <p>${event.description}</p>
-            <span class="event-date">${formatDate(event.date)}</span>
-            ${registrationMarkup(event)}
-          </div>
-        `;
-        div.onclick = (clickEvent) => {
-            if (!clickEvent.target.closest('.register-btn')) openModal(event);
-        };
-        container.appendChild(div);
-    });
+  events.forEach(event => {
+    container.appendChild(createFlipCard(event));
+  });
 }
 
 // Detect workshop events from explicit metadata or their text content.
