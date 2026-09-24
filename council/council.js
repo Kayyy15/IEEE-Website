@@ -66,7 +66,7 @@ function startTimer() {
     slideTimer = setInterval(function() {
         slideIndex++;
         showSlides(slideIndex);
-    }, 4000); // 4 seconds per slide
+    }, 4000);
 }
 
 // Initialize on load
@@ -104,4 +104,25 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+    // --- Hide LinkedIn icons for members without links ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Find all badge overlays
+        const badges = document.querySelectorAll('.cyber-badge');
+        
+        badges.forEach(badge => {
+            const link = badge.querySelector('.social-btn');
+            const overlay = badge.querySelector('.badge-overlay');
+            
+            // Check if link exists and has a valid URL (not # or empty)
+            if (link && overlay) {
+                const href = link.getAttribute('href');
+                // If href is '#' or empty or null, hide the overlay
+                if (!href || href === '#' || href === '') {
+                    overlay.style.display = 'none';
+                } else {
+                    overlay.style.display = 'flex';
+                }
+            }
+        });
+    });
 });
