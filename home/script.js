@@ -49,6 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
+    document.querySelectorAll('.register-btn[data-registration-url]').forEach((button) => {
+        const url = button.dataset.registrationUrl.trim();
+        if (url) {
+            button.href = url;
+            button.hidden = false;
+        }
+    });
+
     // --- Image Modal / Lightbox Logic ---
     // FUTURE REFERENCE:
     // Keep poster image click-to-lightbox behavior attached to .card-img-wrapper img
