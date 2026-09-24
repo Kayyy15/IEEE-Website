@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
     <link rel="stylesheet" href="../home/styles.css" />
-    <link rel="stylesheet" href="/contact/contact.css" />
+    <link rel="stylesheet" href="../contact/contact.css" />
 </head>
 <body>
 
@@ -21,7 +21,7 @@
             <img src="../static/ieeee.png" alt="IEEE PCE Logo" class="logo" />
         </a>
             <ul class="nav-links" id="nav-links">
-            <li><a href="../index.html" >Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="../about/about.html">About Us</a></li>
             <li><a href="../events/events.html">Events</a></li>
             <li><a href="../faculty/faculty.html">Faculty</a></li>
@@ -51,7 +51,18 @@
                     <span>Transmission_Form.exe</span>
                 </div>
                 
-                <form action="mailto:ieeepce.ac.in" method="POST" class="cyber-form" id="contactForm" novalidate>
+                <!-- Web3Forms Integration -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="cyber-form" id="contactForm">
+                    
+                    <!-- ⚠️ REPLACE WITH YOUR ACTUAL WEB3FORMS ACCESS KEY -->
+                    <input type="hidden" name="access_key" value="5fbafe8c-f335-45b0-b47b-0cb3cfe6e8f2">
+                    
+                    <input type="hidden" name="subject" value="New Contact from IEEE PCE Website">
+                    <input type="hidden" name="from_name" value="IEEE PCE Contact Form">
+                    
+                    <!-- Spam protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                     <div class="input-row">
                         <div class="input-group">
                             <input type="text" id="contactName" name="name" required placeholder=" " />
@@ -74,16 +85,16 @@
                     <div class="input-group">
                         <select id="contactInquiry" name="inquiry" required>
                             <option value="" disabled selected>Select Inquiry Directive...</option>
-                            <option value="technical">Technical Support</option>
-                            <option value="partnership">Sponsorship / Partnership</option>
-                            <option value="sales">Event Inquiry</option>
-                            <option value="other">Other Directive</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Sponsorship / Partnership">Sponsorship / Partnership</option>
+                            <option value="Event Inquiry">Event Inquiry</option>
+                            <option value="Other Directive">Other Directive</option>
                         </select>
                         <div class="focus-border"></div>
                     </div>
 
                     <div class="input-group">
-                        <textarea id="contactDescription" name="description" rows="5" required placeholder=" "></textarea>
+                        <textarea id="contactDescription" name="message" rows="5" required placeholder=" "></textarea>
                         <label for="contactDescription">Subject (Message)</label>
                         <div class="focus-border"></div>
                     </div>
@@ -112,6 +123,10 @@
                             <i class="fa-brands fa-instagram"></i>
                             <span>Instagram Feed</span>
                         </a>
+                        <a href="mailto:ieee@pce.ac.in" class="social-box email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email Us</span>
+                        </a>
                     </div>
                 </div>
 
@@ -127,7 +142,7 @@
 
     <footer class="site-footer">
         <div class="footer-bottom">
-            <img src="../static/PUlogo.png" style="height: 90px; width: 90px; margin-bottom: 10px;" alt="PCE Logo" />
+            <img src="../static/PUlogo.png" style="height: 90px; width: 90px; margin-bottom: 10px;" alt="Pillai University Logo" />
             <p>© 2026 IEEE PCE Student Branch. All rights reserved.</p>
         </div>
     </footer>

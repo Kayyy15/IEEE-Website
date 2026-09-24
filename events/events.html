@@ -11,15 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   
-  <link rel="stylesheet" href="../home/styles.css" /> <link rel="stylesheet" href="/events/events.css" />   </head>
+  <link rel="stylesheet" href="../home/styles.css" />
+  <link rel="stylesheet" href="events.css" />
+</head>
 <body>
 
   <header class="navbar">
-    <a href="../home/index.html" class="logo-link">
+    <a href="../index.html" class="logo-link">
       <img src="../static/ieeee.png" alt="IEEE PCE Logo" class="logo" />
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="../index.html"">Home</a></li>
+      <li><a href="../index.html">Home</a></li>
       <li><a href="../about/about.html">About Us</a></li>
       <li><a href="../events/events.html" style="color: var(--accent-primary);">Events</a></li>
       <li><a href="../faculty/faculty.html">Faculty</a></li>
@@ -34,14 +36,12 @@
   </header>
 
   <main class="events-page-wrapper">
-    
     <section class="events-section section-padding">
       <div class="section-header">
         <h2 class="space-title">Upcoming Schedule</h2>
         <div class="line"></div>
       </div>
-      <div id="event-calendar" class="events-grid">
-        </div>
+      <div id="event-calendar" class="events-grid"></div>
     </section>
 
     <section class="events-section section-padding" style="padding-top: 0;">
@@ -50,6 +50,11 @@
         <div class="line"></div>
       </div>
 
+      <!-- FUTURE REFERENCE:
+           Keep this archive year toggle UI aligned with events.js renderEvents(),
+           loadPastEvents(), and loadPastWorkshops() which populate the current/past
+           event sections and the event-calendar card feed.
+      -->
       <div class="year-toggles">
         <button class="tech-btn active" onclick="renderEvents(2026, 'current-events'); setActiveBtn(this); showSection('current');">2026</button>
         <button class="tech-btn" onclick="loadPastEvents(2025); setActiveBtn(this);">2025</button>
@@ -62,18 +67,7 @@
       <div id="past-events" class="events-grid" style="display: none;"></div>
       <div id="past-workshops" class="events-grid" style="display: none;"></div>
     </section>
-
   </main>
-
-  <div id="eventModal" class="modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    <div class="modal-content-wrapper">
-      <div id="slides-container"></div>
-      <div id="dots-container"></div>
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-  </div>
 
   <footer class="site-footer" style="margin-top: auto;">
     <div class="footer-bottom">
@@ -82,5 +76,7 @@
     </div>
   </footer>
 
-  <script src="../home/script.js"></script> <script src="events.js"></script></body>
+  <script src="../home/script.js"></script>
+  <script src="events.js"></script>
+</body>
 </html>
