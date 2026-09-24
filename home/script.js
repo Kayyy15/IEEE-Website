@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Image Modal / Lightbox Logic ---
+    // FUTURE REFERENCE:
+    // Keep poster image click-to-lightbox behavior attached to .card-img-wrapper img
+    // containers only. If event card markup changes, preserve the modalImg.src assignment
+    // and the modal .show-modal fade contract.
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
     const closeModal = document.querySelector('.close-modal');
@@ -92,6 +96,59 @@ document.addEventListener('DOMContentLoaded', () => {
             hideModal();
         }
     });
+
+    // --- Event Access Teleport Animation ---
+    // FUTURE REFERENCE:
+    // Every .event-desc-link inside an .event-card should keep its href as the archive
+    // deep-link target. The JS overlay animation intercepts the click, then redirects to
+    // the selected events.html page after a short delay.
+    const eventDescLinks = Array.from(document.querySelectorAll('.event-desc-link'));
+
+    function showEventAccessAnimation(link) {
+        const card = link.closest('.event-card');
+        if (card) {
+            card.classList.add('cyber-warp-active');
+        }
+
+        const existingOverlay = document.querySelector('.event-teleport-overlay');
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+
+        const overlay = document.createElement('div');
+        overlay.className = 'event-teleport-overlay';
+        overlay.setAttribute('aria-label', 'Accessing event');
+        overlay.innerHTML = `
+            <div class="event-teleport-modal">
+                <span class="teleport-spinner" aria-hidden="true"></span>
+                <span class="teleport-message">ACCESSING EVENT...</span>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const target = link.getAttribute('href');
+        if (target) {
+            setTimeout(() => {
+                window.location.href = target;
+            }, 550);
+        }
+    }
+
+    eventDescLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            showEventAccessAnimation(link);
+        });
+    });
+
+    const eventArchiveLink = document.querySelector('.events-footer-cta .btn-secondary');
+    if (eventArchiveLink) {
+        eventArchiveLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            showEventAccessAnimation(eventArchiveLink);
+        });
+    }
 
     // --- Interactive Particle Constellation ---
     const canvas = document.getElementById('particle-canvas');

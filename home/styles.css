@@ -815,3 +815,88 @@ body {
   } 
 }
 
+  /* Ensure the sliding banner text is easily readable */
+  .sliding-text {
+    font-size: 0.75rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}
+/* 
+   CENTERED FULL-PAGE "ACCESSING EVENT" ANIMATION
+    */
+/* FUTURE REFERENCE:
+ * This animation block pairs with home/script.js showEventAccessAnimation().
+ * The .event-card.cyber-warp-active class and .event-teleport-overlay modal
+ * visually confirm the event-desc-link click before redirecting to the archive page.
+ */
+
+/* Clicked card subtle energy glow */
+.event-card.cyber-warp-active {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6) !important;
+  transform: scale(0.98) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* 1. Full-screen subtle dark backdrop blur */
+.event-teleport-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 11, 20, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: overlayFade 0.4s ease-out forwards;
+}
+
+@keyframes overlayFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 2. Sleek HUD Pop-up centered directly in middle of the screen */
+.event-teleport-modal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(10, 17, 32, 0.95);
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), inset 0 0 15px rgba(59, 130, 246, 0.15);
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  transform: scale(0.85);
+  animation: centerPopup 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulsing radar spinner */
+.teleport-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spinRadar 0.6s linear infinite;
+}
+
+@keyframes spinRadar {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes centerPopup {
+  0% { opacity: 0; transform: scale(0.75); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
