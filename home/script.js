@@ -284,27 +284,39 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
-    // --- Mobile Navigation Menu ---
-    const openMenu = document.getElementById('open-menu');
-    const closeMenu = document.getElementById('close-menu');
-    const navLinks = document.getElementById('nav-links');
+// --- Mobile Navigation Menu ---
+const openMenu = document.getElementById('open-menu');
+const closeMenu = document.getElementById('close-menu');
+const navLinks = document.getElementById('nav-links');
 
-    if (openMenu && closeMenu && navLinks) {
-        // Open menu
-        openMenu.addEventListener('click', () => {
-            navLinks.classList.add('active');
-        });
+if (openMenu && closeMenu && navLinks) {
 
-        // Close menu
-        closeMenu.addEventListener('click', () => {
+    // Open mobile menu
+    openMenu.addEventListener('click', () => {
+        navLinks.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close mobile menu
+    closeMenu.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Close menu when navigation link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
             navLinks.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
 
-        // Auto-close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
+    // Close menu using Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 });
