@@ -8,8 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Iceland&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="../home/theme.js"></script>
   <link rel="stylesheet" href="../home/styles.css" />
   <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="../home/theme.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -33,6 +35,9 @@
       <i class="fa-solid fa-xmark close-menu" id="close-menu"></i>
     </ul>
     <div class="nav-controls">
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
+      </button>
       <i class="fa-solid fa-bars open-menu" id="open-menu"></i>
     </div>
   </header>

@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Preloader ---
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.style.opacity = '0';
+    if (preloader) {
         setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }, 1500); // Gives a nice cinematic loading feel
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1500); // Gives a nice cinematic loading feel
+    }
 
     // --- Typing Animation (Hero Heading) ---
     const heading = document.getElementById('typing-heading');
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let charIndex = 0;
     
     // We wait for the preloader to finish before typing
-    setTimeout(() => {
+    if (heading) setTimeout(() => {
         const typeWriter = () => {
             if (charIndex < textToType.length) {
                 heading.textContent += textToType.charAt(charIndex);
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove cursor blink effect when done
                 heading.style.borderRight = "none";
                 // Show the rest of the hero content
-                document.querySelector('.hero-details').classList.add('show');
-                document.querySelector('.hero-image').classList.add('show');
+                document.querySelector('.hero-details')?.classList.add('show');
+                document.querySelector('.hero-image')?.classList.add('show');
             }
         };
         typeWriter();
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open modal on image click
     posterImages.forEach(img => {
+        if (!modal || !modalImg) return;
         img.addEventListener('click', function() {
             modal.style.display = "flex";
             // Tiny delay to let display:flex apply before triggering the CSS animation
@@ -88,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Close when clicking the 'X'
-    closeModal.addEventListener('click', hideModal);
+    closeModal?.addEventListener('click', hideModal);
 
     // Close when clicking anywhere in the dark background
-    modal.addEventListener('click', (e) => {
+    modal?.addEventListener('click', (e) => {
         if (e.target === modal) {
             hideModal();
         }
