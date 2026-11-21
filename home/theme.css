@@ -74,12 +74,26 @@ body {
 
 :root[data-theme="light"] .site-footer { background: #dfe7f1; border-top-color: var(--theme-border); }
 :root[data-theme="light"] .hero-title { background: linear-gradient(135deg, #172033 20%, #2563eb 65%, #3b82f6 100%); background-clip: text; }
+:root[data-theme="light"] .about-hero .page-title {
+  color: #111827;
+  opacity: 1;
+  background: linear-gradient(135deg, #111827 20%, #0875c9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 :root[data-theme="light"] .description,
 :root[data-theme="light"] .social-btn,
 :root[data-theme="light"] .event-card,
 :root[data-theme="light"] .contact-container { border-color: var(--theme-border); }
 :root[data-theme="light"] .description,
 :root[data-theme="light"] .social-btn { background: rgba(255, 255, 255, 0.62); }
+:root[data-theme="light"] .description {
+  color: #172033;
+  opacity: 1;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.92);
+}
 :root[data-theme="light"] .stat-box,
 :root[data-theme="light"] .input-group input,
 :root[data-theme="light"] .input-group textarea,
